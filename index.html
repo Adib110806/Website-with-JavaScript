@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LATIHAN 1 - ADIB</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="jssor.slider.mini.js"></script>
+</head>
+<body>
+    <!-- Navigasi menu utama start -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" style="font-family: fantasy;color: rgb(40, 158, 255);" href="#">Adib Laptop</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#About">About</a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Product
+                    </a>
+                    <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#NewProduct">New Product</a>
+                    <a class="dropdown-item" href="#BestProduct">Best Product</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#Contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#Video">Video</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigasi menu utama end -->
+
+    <!-- Carousel utama start -->
+    <script>
+        jQuery(document).ready(function ($) {
+            var options = {
+                $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $Idle: 4000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+                $PauseOnHover: 1,                                   //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
+
+                $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
+                $SlideDuration: 800,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
+                //$SlideWidth: 600,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+                //$SlideHeight: 300,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+                $SlideSpacing: 0, 					                //[Optional] Space between each slide in pixels, default value is 0
+                $Cols: 1,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
+                $ParkingPosition: 0,                                //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
+                $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+                $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+                $DragOrientation: 1,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $Cols is greater than 1, or parking position is not 0)
+
+                $ArrowNavigatorOptions: {                       //[Optional] Options to specify and enable arrow navigator or not
+                    $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
+                    $ChanceToShow: 1,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                    $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+                },
+
+                $ThumbnailNavigatorOptions: {
+                    $Class: $JssorThumbnailNavigator$,              //[Required] Class to create thumbnail navigator instance
+                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+
+                    $ActionMode: 1,                                 //[Optional] 0 None, 1 act by click, 2 act by mouse hover, 3 both, default value is 1
+                    $AutoCenter: 0,                                 //[Optional] Auto center thumbnail items in the thumbnail navigator container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 3
+                    $Rows: 1,                                      //[Optional] Specify lanes to arrange thumbnails, default value is 1
+                    $SpacingX: 3,                                   //[Optional] Horizontal space between each thumbnail in pixel, default value is 0
+                    $SpacingY: 3,                                   //[Optional] Vertical space between each thumbnail in pixel, default value is 0
+                    $Cols: 9,                              //[Optional] Number of pieces to display, default value is 1
+                    $ParkingPosition: 260,                          //[Optional] The offset position to park thumbnail
+                    $Orientation: 1,                                //[Optional] Orientation to arrange thumbnails, 1 horizental, 2 vertical, default value is 1
+                    $NoDrag: false                            //[Optional] Disable drag or not, default value is false
+                }
+            };
+
+            var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+
+            //responsive code begin
+            //you can remove responsive code if you don't want the slider scales while window resizing
+            function ScaleSlider() {
+                var bodyWidth = document.body.clientWidth;
+                if (bodyWidth)
+                    jssor_slider1.$ScaleWidth(Math.min(bodyWidth, 1400));
+                else
+                    window.setTimeout(ScaleSlider, 20);
+            }
+            ScaleSlider();
+
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+            //responsive code end
+        });
+    </script>
+    <div style="position: relative; width: 100%; background-color: #1051d1; overflow: hidden;" class="mt-5">
+        <div style="position: relative; left: 50%; width: 5000px; text-align: center; margin-left: -2500px;">
+            <!-- Jssor Slider Begin -->
+            <div id="slider1_container" style="position: relative; margin: 0 auto;
+                top: 0px; left: 0px; width: 980px; height: 460px; background: url(../img/major/main_bg.jpg) top center no-repeat;">
+                <!-- Loading Screen -->
+                <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+                    <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block;
+                        top: 0px; left: 0px; width: 100%; height: 100%;">
+                    </div>
+                    <div style="position: absolute; display: block; background: url(../img/loading.gif) no-repeat center center;
+                        top: 0px; left: 0px; width: 100%; height: 100%;">
+                    </div>
+                </div>
+                <!-- Slides Container -->
+                <div u="slides" style="position: absolute; left: 0px; top: 0px; width: 980px;
+                    height: 460px; overflow: hidden;">
+                    <div>
+                        <div style="position: absolute; width: 480px; height: 300px; top: 10px; left: 10px;
+                            text-align: left; line-height: 1.8em; font-size: 12px;">
+                            <br />
+                            <span style="display: block; line-height: 1em; text-transform: uppercase; font-size: 42px;
+                                color: #FFFFFF;">FIND YOUR PERFECT LAPTOP</span>
+                            <br />
+                            <br />
+                            <span style="display: block; line-height: 1.1em; font-size: 20px; color: #FFFFFF;">
+                                Performance for Every Need
+                            </span>
+                            <br />
+                            <span style="display: block; line-height: 1.1em; font-size: 18px; color: #FFFFFF;">
+                                Whether for study, work, gaming, or content creation, <br>
+                                discover laptops designed to keep up with your lifestyle.
+                            </span>
+                            <br />
+                            <a href="http://www.jssor.com">
+                                <img src="assets/find-out-more-bt.png" border="0" alt="auction slider" width="215"
+                                     height="50" />
+                            </a>
+                        </div>
+                        <img src="assets/laptop-carousel-1.jpg" style="position: absolute; top: 23px; left: 480px; width: 500px; height: 350px;" />
+                        <img u="thumb" src="assets/laptop-carousel-1.jpg" />
+                    </div>
+                    <div>
+                        <div style="position: absolute; width: 480px; height: 300px; top: 10px; left: 10px;
+                            text-align: left; line-height: 1.8em; font-size: 12px;">
+                            <br />
+                            <span style="display: block; line-height: 1em; text-transform: uppercase; font-size: 42px;
+                                color: #FFFFFF;">GAMING LAPTOP COLLECTION</span>
+                            <br />
+                            <br />
+                            <span style="display: block; line-height: 1.1em; font-size: 20px; color: #FFFFFF;">
+                                Built for Speed and Victory
+                            </span>
+                            <br />
+                            <span style="display: block; line-height: 1.1em; font-size: 18px; color: #FFFFFF;">
+                               Experience powerful processors, dedicated graphics <br>
+                               cards, and smooth gameplay with our latest <br>
+                               gaming laptops.
+                            </span>
+                            <br />
+                            <a href="http://www.jssor.com">
+                                <img src="assets/find-out-more-bt.png" border="0" alt="ebay slideshow" width="215"
+                                     height="50" />
+                            </a>
+                        </div>
+                        <img src="assets/laptop-carousel-2.jpg" style="position: absolute; top: 23px; left: 480px; width: 500px; height: 350px;" />
+                        <img u="thumb" src="assets/laptop-carousel-2.jpg" />
+                    </div>
+                    <div>
+                        <div style="position: absolute; width: 480px; height: 300px; top: 10px; left: 10px;
+                            text-align: left; line-height: 1.8em; font-size: 12px;">
+                            <br />
+                            <span style="display: block; line-height: 1em; text-transform: uppercase; font-size: 42px;
+                                color: #FFFFFF;">BUSINESS & OFFICE LAPTOPS</span>
+                            <br />
+                            <span style="display: block; line-height: 1.1em; font-size: 20px; color: #FFFFFF;">
+                                Work Smarter Every Day
+                            </span>
+                            <br />
+                            <span style="display: block; line-height: 1.1em; font-size: 18px; color: #FFFFFF;">
+                                Stay productive with reliable laptops featuring long <br>
+                                battery life, fast performance, and professional designs.
+                            </span>
+                            <br />
+                            <a href="http://www.jssor.com">
+                                <img src="assets/find-out-more-bt.png" border="0" alt="listing slider" width="215"
+                                     height="50" />
+                            </a>
+                        </div>
+                        <img src="assets/laptop-carousel-3.jpg" style="position: absolute; top: 23px; left: 480px; width: 500px; height: 350px;" />
+                        <img u="thumb" src="assets/laptop-carousel-3.jpg" />
+                    </div>
+                    <div>
+                        <div style="position: absolute; width: 480px; height: 300px; top: 10px; left: 10px;
+                            text-align: left; line-height: 1.8em; font-size: 12px;">
+                            <br />
+                            <span style="display: block; line-height: 1em; text-transform: uppercase; font-size: 42px;
+                                color: #FFFFFF;">STUDENT FRIENDLY LAPTOPS</span>
+                            <br />
+                            <br />
+                            <span style="display: block; line-height: 1.1em; font-size: 20px; color: #FFFFFF;">
+                                Learn Without Limits
+                            </span>
+                            <br />
+                            <span style="display: block; line-height: 1.1em; font-size: 18px; color: #FFFFFF;">
+                                Affordable and dependable laptops that help students complete assignments, attend online classes, and stay connected.
+                            </span>
+                            <br />
+                            <a href="http://www.jssor.com">
+                                <img src="assets/find-out-more-bt.png" border="0" alt="ebay store slider" width="215"
+                                     height="50" />
+                            </a>
+                        </div>
+                        <img src="assets/laptop-carousel-4.jpg" style="position: absolute; top: 23px; left: 480px; width: 500px; height: 350px;" />
+                        <img u="thumb" src="assets/laptop-carousel-4.jpg" />
+                    </div>
+                    <div>
+                        <div style="position: absolute; width: 480px; height: 300px; top: 10px; left: 10px;
+                            text-align: left; line-height: 1.8em; font-size: 12px;">
+                            <br />
+                            <span style="display: block; line-height: 1em; text-transform: uppercase; font-size: 42px;
+                                color: #FFFFFF;">PREMIUM LAPTOP <br> SERIES</span>
+                            <br />
+                            <br />
+                            <span style="display: block; line-height: 1.1em; font-size: 20px; color: #FFFFFF;">
+                                Style Meets Performance
+                            </span>
+                            <br />
+                            <span style="display: block; line-height: 1.1em; font-size: 18px; color: #FFFFFF;">
+                                Enjoy elegant designs, stunning displays, and premium features that elevate your computing experience.
+                            </span>
+                            <br />
+                            <a href="http://www.jssor.com">
+                                <img src="assets/find-out-more-bt.png" border="0" alt="listing template slider"
+                                     width="215" height="50" />
+                            </a>
+                        </div>
+                        <img src="assets/laptop-carousel-5.jpg" style="position: absolute; top: 23px; left: 480px; width: 500px; height: 350px;" />
+                        <img u="thumb" src="assets/laptop-carousel-5.jpg" />
+                    </div>
+                    <div>
+                        <div style="position: absolute; width: 480px; height: 300px; top: 10px; left: 10px;
+                            text-align: left; line-height: 1.8em; font-size: 12px;">
+                            <br />
+                            <span style="display: block; line-height: 1em; text-transform: uppercase; font-size: 42px;
+                                color: #FFFFFF;">POWER YOUR PRODUCTIVITY</span>
+                            <br />
+                            <br />
+                            <span style="display: block; line-height: 1.1em; font-size: 20px; color: #FFFFFF;">
+                                Work Faster, Achieve More
+                            </span>
+                            <br />
+                            <span style="display: block; line-height: 1.1em; font-size: 18px; color: #FFFFFF;">
+                                Boost your efficiency with laptops designed for <br>
+                                multitasking, creativity, and performance.
+                            </span>
+                            <br />
+                            <a href="http://www.jssor.com">
+                                <img src="assets/find-out-more-bt.png" border="0" alt="auction template slider"
+                                     width="215" height="50" />
+                            </a>
+                        </div>
+                        <img src="assets/laptop-carousel-6.jpg" style="position: absolute; top: 23px; left: 480px; width: 500px; height: 350px;" />
+                        <img u="thumb" src="assets/laptop-carousel-6.jpg" />
+                    </div>
+                    <div>
+                        <div style="position: absolute; width: 480px; height: 300px; top: 10px; left: 10px;
+                            text-align: left; line-height: 1.8em; font-size: 12px;">
+                            <br />
+                            <span style="display: block; line-height: 1em; text-transform: uppercase; font-size: 42px;
+                                color: #FFFFFF;">SPECIAL DEALS & DISCOUNTS</span>
+                            <br />
+                            <br />
+                            <span style="display: block; line-height: 1.1em; font-size: 20px; color: #FFFFFF;">
+                                Best Prices Available 
+                            </span>
+                            <br />
+                            <span style="display: block; line-height: 1.1em; font-size: 18px; color: #FFFFFF;">
+                                Don't miss our exclusive promotions and special offers <br>
+                                on selected laptops while supplies last.
+                            </span>
+                            <br />
+                            <a href="http://www.jssor.com">
+                                <img src="assets/find-out-more-bt.png" border="0" alt="ebay store slider" width="215"
+                                     height="50" />
+                            </a>
+                        </div>
+                        <img src="assets/laptop-carousel-7.jpg" style="position: absolute; top: 23px; left: 480px; width: 500px; height: 350px;" />
+                        <img u="thumb" src="assets/laptop-carousel-7.jpg" />
+                    </div>
+                </div>
+                
+                <style>
+                    /* jssor slider arrow navigator skin 07 css */
+                    /*
+                    .jssora07l                  (normal)
+                    .jssora07r                  (normal)
+                    .jssora07l:hover            (normal mouseover)
+                    .jssora07r:hover            (normal mouseover)
+                    .jssora07l.jssora07ldn      (mousedown)
+                    .jssora07r.jssora07rdn      (mousedown)
+                    .jssora07l.jssora07lds      (disabled)
+                    .jssora07r.jssora07rds      (disabled)
+                    */
+                    .jssora07l, .jssora07r {
+                        display: block;
+                        position: absolute;
+                        /* size of arrow element */
+                        width: 50px;
+                        height: 50px;
+                        cursor: pointer;
+                        background: url(assets/a07.png) no-repeat;
+                        overflow: hidden;
+                    }
+                    .jssora07l { background-position: -5px -35px; }
+                    .jssora07r { background-position: -65px -35px; }
+                    .jssora07l:hover { background-position: -125px -35px; }
+                    .jssora07r:hover { background-position: -185px -35px; }
+                    .jssora07l.jssora07ldn { background-position: -245px -35px; }
+                    .jssora07r.jssora07rdn { background-position: -305px -35px; }
+
+                    .jssora07l.jssora07lds { background-position: -5px -35px; opacity: .3; pointer-events: none; }
+                    .jssora07r.jssora07rds { background-position: -65px -35px; opacity: .3; pointer-events: none; }
+                </style>
+                <!-- Arrow Left -->
+                <span u="arrowleft" class="jssora07l" style="top: 123px; left: 8px;">
+                </span>
+                <!-- Arrow Right -->
+                <span u="arrowright" class="jssora07r" style="top: 123px; right: 8px;">
+                </span>
+                <!--#endregion Arrow Navigator Skin End -->
+                
+            <!--#region Thumbnail Navigator Skin Begin -->
+            <!-- Help: http://www.jssor.com/help/thumbnail-navigator.html -->
+            <style>
+                /* jssor slider thumbnail navigator skin 04 css */
+                /*
+                .jssort04 .p            (normal)
+                .jssort04 .p:hover      (normal mouseover)
+                .jssort04 .pav          (active)
+                .jssort04 .pav:hover    (active mouseover)
+                .jssort04 .pdn          (mousedown)
+                */
+
+                .jssort04 {
+                    position: absolute;
+                    /* size of thumbnail navigator container */
+                    width: 600px;
+                    height: 60px;
+                }
+
+                    .jssort04 .p {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 62px;
+                        height: 32px;
+                    }
+
+                    .jssort04 .t {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                    }
+
+                    .jssort04 .w, .jssort04 .pav:hover .w {
+                        position: absolute;
+                        width: 60px;
+                        height: 30px;
+                        border: #0099FF 1px solid;
+                        box-sizing: content-box;
+                    }
+
+                    .jssort04 .pdn .w, .jssort04 .pav .w {
+                        border-style: dashed;
+                    }
+
+                    .jssort04 .c {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 62px;
+                        height: 32px;
+                        background-color: #000;
+                        filter: alpha(opacity=45);
+                        opacity: .45;
+                        transition: opacity .6s;
+                        -moz-transition: opacity .6s;
+                        -webkit-transition: opacity .6s;
+                        -o-transition: opacity .6s;
+                    }
+
+                    .jssort04 .p:hover .c, .jssort04 .pav .c {
+                        filter: alpha(opacity=0);
+                        opacity: 0;
+                    }
+
+                    .jssort04 .p:hover .c {
+                        transition: none;
+                        -moz-transition: none;
+                        -webkit-transition: none;
+                        -o-transition: none;
+                    }
+
+                    * html .jssort04 .w {
+                        width /**/: 62px;
+                        height /**/: 32px;
+                    }
+            </style>
+            <!-- thumbnail navigator container -->
+            <div u="thumbnavigator" class="jssort04" style="right: 0px; bottom: 0px;">
+                <!-- Thumbnail Item Skin Begin -->
+                <div u="slides" style="bottom: 25px; right: 30px; cursor: default;">
+                    <div u="prototype" class="p">
+                        <div class=w><div u="thumbnailtemplate" class="t"></div></div>
+                        <div class=c></div>
+                    </div>
+                </div>
+                <!-- Thumbnail Item Skin End -->
+            </div>
+            <!--#endregion Thumbnail Navigator Skin End -->
+                <a style="display: none" href="http://www.jssor.com">jQuery Slider</a>
+            </div>
+            <!-- Jssor Slider End -->
+        </div>
+    </div>
+    <!-- Carousel utama end -->
+
+    <!-- Content 1 start -->
+    <section id="About" class="About mb-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h1>About Me</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card mx-auto p-4" style="width: 340px;">
+                        <img src="assets/25.240.0011.jpg" class="card-img-top" alt="..." style="height: 350px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">My Profile</h5>
+                            <table class="card-text">
+                                <tr>
+                                    <td>Nama</td>
+                                    <td>:</td>
+                                    <td>Muhammad Naufal Adib</td>
+                                </tr>
+                                <tr>
+                                    <td>Nim</td>
+                                    <td>:</td>
+                                    <td>25.240.0011</td>
+                                </tr>
+                                <tr>
+                                    <td>Kelas</td>
+                                    <td>:</td>
+                                    <td>2P42</td>
+                                </tr>
+                                <tr>
+                                    <td>Jurusan</td>
+                                    <td>:</td>
+                                    <td>Teknik Informatika</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Content 1 end -->
+
+    <!-- Animasi text -->
+    <marquee behavior="scroll" direction="left" scrollamount="15" style="background-color: blue;display: block;margin-bottom: 0;">
+        <h4 class="h4-marquee">DISKON 10% UNTUK SETIAP PEMBELIAN PRODUK BARU KAMI!</h4>
+    </marquee>
+
+    <!-- Content 2 start -->
+    <section id="NewProduct" class="NewProduct">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h1>New Product</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col p-2">
+                    <div class="card p-4 mx-auto" style="width: 250px;">
+                        <img src="assets/Laptop-Gaming-HP-Terbaru-Omen-16-Inch.jpg" class="card-img-top" alt="..." style="width: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">HP OMEN 16-xf0011AX</h5>
+                            <p class="card-text">
+                                Spesifikasi: <br>
+                                - AMD Ryzen 7 7840HS <br>
+                                - NVIDIA GeForce RTX 4060 8GB <br>
+                                - RAM 16GB DDR5 <br>
+                                - SSD 1TB NVMe <br>
+                                - Layar 16.1" FHD 165Hz <br>
+                            </p>
+                            <p class="card-text">Harga: Rp 29.999.000</p>
+                            <a href="#" class="btn btn-primary d-block">Beli Sekarang!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="card p-4 mx-auto" style="width: 250px;">
+                        <img src="assets/Laptop-HP-Terbaru-Spectre-x360-13.5-inci.jpg" class="card-img-top" alt="..." style="width: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">HP Spectre x360 13.5 Inci 14-EF2002TU</h5>
+                            <p class="card-text">
+                                Spesifikasi: <br>
+                                - Intel Core i7-1355U <br>
+                                - Intel Iris Xe Graphics <br>
+                                - RAM 16GB LPDDR4x <br>
+                                - SSD 1TB NVMe <br>
+                                - Layar OLED 13.5" Touchscreen <br>
+                            </p>
+                            <p class="card-text">Harga: Rp 26.500.000</p>
+                            <a href="#" class="btn btn-primary d-block">Beli Sekarang!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="card p-4 mx-auto" style="width: 250px;">
+                        <img src="assets/Laptop-HP-ENVY-x360-13.3-inci-Harga-Terbaru.jpg" class="card-img-top" alt="..." style="width: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">HP ENVY x360 13 Inci 13-BF0107TU</h5>
+                            <p class="card-text">
+                                Spesifikasi: <br>
+                                - Intel Core i5-1230U <br>
+                                - Intel Iris Xe Graphics <br>
+                                - RAM 16GB <br>
+                                - SSD 512GB <br>
+                                - Layar 13.3" Full HD Touch <br>
+                            </p>
+                            <p class="card-text">Harga: Rp 19.499.000</p>
+                            <a href="#" class="btn btn-primary d-block">Beli Sekarang!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="card p-4 mx-auto" style="width: 250px;">
+                        <img src="assets/Laptop-HP-Gaming-Terbaru-Victus-16-Inch.jpg" class="card-img-top" alt="..." style="width: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">HP Victus 16 Inch Gaming 16-s0010AX</h5>
+                            <p class="card-text">
+                                Spesifikasi: <br>
+                                - AMD Ryzen 7 7840HS <br>
+                                - NVIDIA GeForce RTX 4050 6GB <br>
+                                - RAM 16GB DDR5 <br>
+                                - SSD 512GB <br>
+                                - Layar 16.1" FHD 144Hz <br>
+                            </p>
+                            <p class="card-text">Harga: Rp 18.499.000</p>
+                            <a href="#" class="btn btn-primary d-block">Beli Sekarang!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col p-2">
+                    <div class="card p-4 mx-auto" style="width: 250px;">
+                        <img src="assets/Laptop-HP-Pavilion-x360-2in1-14-Inch.jpg" class="card-img-top" alt="..." style="width: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">HP Pavilion x360 14 Inch 14-ek0160TU</h5>
+                            <p class="card-text">
+                                Spesifikasi: <br>
+                                - Intel Core i5-1235U <br>
+                                - Intel Iris Xe Graphics <br>
+                                - RAM 8GB <br>
+                                - SSD 512GB <br>
+                                - Layar 14" FHD Touchscreen <br>
+                            </p>
+                            <p class="card-text">Harga: Rp 12.799.000</p>
+                            <a href="#" class="btn btn-primary d-block">Beli Sekarang!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="card p-4 mx-auto" style="width: 250px;">
+                        <img src="assets/Laptop-HP-Pavilion-Plus-14-Inci-Terbaru.jpg" class="card-img-top" alt="..." style="width: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">HP Pavilion Plus 14 Inci 14-EY0017AU</h5>
+                            <p class="card-text">
+                                Spesifikasi: <br>
+                                - AMD Ryzen 7 7840U <br>
+                                - AMD Radeon Graphics <br>
+                                - RAM 16GB LPDDR5 <br>
+                                - SSD 512GB <br>
+                                - Layar 14" 2.8K OLED <br>
+                            </p>
+                            <p class="card-text">Harga: Rp 11.999.000</p>
+                            <a href="#" class="btn btn-primary d-block">Beli Sekarang!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="card p-4 mx-auto" style="width: 250px;">
+                        <img src="assets/Laptop-HP-245-G10-Harga-Terbaru.jpg" class="card-img-top" alt="..." style="width: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">HP 245 G10 14 Inch Business Laptop</h5>
+                            <p class="card-text">
+                                Spesifikasi: <br>
+                                - AMD Ryzen 5 7530U <br>
+                                - AMD Radeon Graphics <br>
+                                - RAM 8GB <br>
+                                - SSD 512GB <br>
+                                - Layar 14" Full HD <br>
+                            </p>
+                            <p class="card-text">Harga: Rp 5.999.000</p>
+                            <a href="#" class="btn btn-primary d-block">Beli Sekarang!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-2">
+                    <div class="card p-4 mx-auto" style="width: 250px;">
+                        <img src="assets/Harga-Laptop-HP-Terbaru-Seri-14.jpg" class="card-img-top" alt="..." style="width: 200px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">HP Laptop 14s-FQ0562AU</h5>
+                            <p class="card-text">
+                                Spesifikasi: <br>
+                                - AMD Ryzen 3 5300U <br>
+                                - AMD Radeon Graphics <br>
+                                - RAM 8GB <br>
+                                - SSD 256GB <br>
+                                - Layar 14" Full HD <br>
+                            </p>
+                            <p class="card-text">Harga: Rp 5.099.000</p>
+                            <a href="#" class="btn btn-primary d-block">Beli Sekarang!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Content 2 end -->
+
+    <!-- Content 3 start -->
+    <section id="BestProduct" class="BestProduct">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h1>Best Product</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card p-4 mx-auto">
+                        <img src="assets/asus_tuf_-gaming_a16_jaeger-grey_02_l_1.jpg" class="card-img-top" alt="..." style="width: 300px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">ASUS TUF Gaming A16 - FA608UP-R757J6G-HM</h5>
+                            <p class="card-text">
+                                Spesifikasi: <br>
+                                - AMD Ryzen 7 8845HS <br>
+                                - NVIDIA GeForce RTX 4070 8GB <br>
+                                - RAM 16GB DDR5 <br>
+                                - SSD 1TB NVMe <br>
+                                - Layar 16" WQXGA 165Hz <br>
+                            </p>
+                            <p class="card-text">Harga: Rp 28.999.000</p>
+                            <a href="#" class="btn btn-primary d-block">Beli Sekarang!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-4 mx-auto">
+                        <img src="assets/asus_tuf_gaming_f16_02_l_9.jpg" class="card-img-top" alt="..." style="width: 300px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">ASUS TUF Gaming F16 - FX608JMR-I7N56J7G-HM</h5>
+                            <p class="card-text">
+                                Spesifikasi: <br>
+                                - Intel Core i7-14650HX <br>
+                                - NVIDIA GeForce RTX 5060 8GB <br>
+                                - RAM 16GB DDR5 <br>
+                                - SSD 1TB NVMe <br>
+                                - Layar 16" FHD+ 165Hz <br>
+                            </p>
+                            <p class="card-text">Harga: Rp 27.999.000</p>
+                            <a href="#" class="btn btn-primary d-block">Beli Sekarang!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-4 mx-auto">
+                        <img src="assets/asus_v3607_product_photo_1k_matte_black_03_kb_light-on_2400x2400_6.jpg" class="card-img-top" alt="..." style="width: 300px;">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">ASUS Gaming V16 (V3607V) - V3607VH-I7N55B6T-HM</h5>
+                            <p class="card-text">
+                                Spesifikasi: <br>
+                                - Intel Core i7-13620H <br>
+                                - NVIDIA GeForce RTX 4050 6GB <br>
+                                - RAM 16GB DDR5 <br>
+                                - SSD 512GB NVMe <br>
+                                - Layar 16" Full HD 144Hz <br>
+                            </p>
+                            <p class="card-text">Harga: Rp 25.499.000</p>
+                            <a href="#" class="btn btn-primary d-block">Beli Sekarang!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Content 3 end -->
+
+    <!-- Content 4 start -->
+    <section id="Contact" class="Contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <br>
+                    <br>
+                    <br>
+                    <h1 class="text-center">Location</h1>
+                    <div class="card" style="width: 340px;">
+                        <div class="card-body text-white bg-primary">
+                            <h5 class="card-title" style="font-size: 25px;">Location</h5>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.948208469866!2d109.6669863745989!3d-6.896798367491174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e702425ed6862c7%3A0x989783f7a8c1e403!2sJl.%20Sumatera%2C%20Kec.%20Pekalongan%20Bar.%2C%20Kota%20Pekalongan%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1776985152715!5m2!1sid!2sid" width="300px" height="250px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Jl. Sumatera Gg. 4 34, Sapuro Kebulen, Kec. Pekalongan Bar., Kota Pekalongan, Jawa Tengah 51112</li>
+                            <li class="list-group-item">+62 8973513060</li>
+                            <li class="list-group-item">08:00 - 22:00 WIB</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <br>
+                    <br>
+                    <br>
+                    <h1 class="text-center">Contact</h1>
+                    <div class="card" style="width: 100%;">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="nama">Nama</label>
+                                    <input type="nama" class="form-control" id="nama">
+                                </div>
+                                <div class="form-group">
+                                    <label for="telp">Telp</label>
+                                    <input type="telp" class="form-control" id="telp">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pesan">Pesan</label>
+                                    <input type="pesan" class="form-control" id="pesan">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="reset" class="btn btn-primary">Reset</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Content 4 end -->
+
+    <!-- Content 5 start -->
+    <section id="Video" class="Video">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h1>Video</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 p-4">
+                    <div class="card bg-primary">
+                        <div class="card-body">
+                             <iframe width="100%" height="250px" src="https://www.youtube.com/embed/5JHIxUguNxQ?si=BjAJ1iHH3a6VH2tK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-4">
+                    <div class="card bg-primary">
+                        <div class="card-body">
+                            <iframe width="100%" height="250px" src="https://www.youtube.com/embed/Up5X_coXNTs?si=CRUBNp4jvfWFbEOF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-4">
+                    <div class="card bg-primary">
+                        <div class="card-body">
+                            <iframe width="100%" height="250px" src="https://www.youtube.com/embed/IxHKCdTtaqM?si=1aQl85RauRuh2Q8Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Content 5 end -->
+
+    <!-- Footer start -->
+    <section id="Footer" class="Footer mt-4 bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center pt-3 text-white">
+                    <p>
+                        Copyright &copy; 2026 Muhammad Naufal Adib
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer end -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>
